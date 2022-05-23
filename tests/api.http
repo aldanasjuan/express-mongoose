@@ -1,0 +1,47 @@
+@api = {{$dotenv TESTS_API}}
+@email = {{$dotenv TESTS_EMAIL}}
+@first_name = {{$dotenv TESTS_FIRST_NAME}}
+@last_name = {{$dotenv TESTS_LAST_NAME}}
+@password = {{$dotenv TESTS_PASSWORD}}
+@reset_password = {{$dotenv TESTS_RESET_PASSWORD}}
+@jwt = {{$dotenv TESTS_JWT}}
+
+@forgot_token = {{$dotenv TESTS_FORGOT_TOKEN}}
+###
+POST {{api}}/users/login
+Content-Type: application/json
+
+{
+    "email":"{{email}}",
+    "password": "{{password}}"
+}
+
+###
+GET {{api}}/users/logged
+Authorization: {{jwt}}
+###
+POST {{api}}/users/register
+Content-Type: application/json
+
+{
+    "firstName":"{{first_name}}",
+    "lastName":"{{last_name}}",
+    "email":"{{email}}",
+    "password": "{{password}}"
+}
+
+###
+POST {{api}}/users/forgot-password-email
+Content-Type: application/json
+
+{
+    "email":"{{email}}"
+}
+###
+POST {{api}}/users/forgot-password-reset
+Content-Type: application/json
+
+{
+    "token":"{{forgot_token}}",
+    "password": "{{reset_password}}"
+}
