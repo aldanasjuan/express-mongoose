@@ -5,6 +5,10 @@ const options = {
     useUnifiedTopology: true,
 }
 
+
+/* 
+ Init connects to a mongo database.
+*/
 async function init(connString){
     return new Promise((res,rej) => {
         mongoose.connect(connString, options).then(() => {

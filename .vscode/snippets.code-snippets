@@ -17,7 +17,7 @@
 	// }
 	"new-router":{
 		"scope": "javascript",
-		"prefix": "newr",
+		"prefix": "newrouter",
 		"description": "Creates a new router module",
 		"body":[
 			"",

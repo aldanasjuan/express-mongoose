@@ -45,3 +45,21 @@ Content-Type: application/json
     "token":"{{forgot_token}}",
     "password": "{{reset_password}}"
 }
+
+
+
+###
+GET {{api}}/example
+###
+POST {{api}}/example/create
+Authorization: {{jwt}}
+Content-Type: application/json
+
+{
+    "content": "a note 3454"
+}
+
+###
+PUT {{api}}/example/edit
+###
+DELETE {{api}}/example/delete
