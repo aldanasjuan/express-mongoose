@@ -51,6 +51,7 @@ router.post("/register", async (req, res) => {
         let user = await User.create({firstName, lastName, email, password:hash})
         let token = jwt.sign({ id: user._id, firstName, lastName, email, exp: utils.now() + JWT_EXP }, process.env.JWT_KEY)
         res.setHeader("Authorization", token)
+        res.setHeader('Access-Control-Expose-Headers', 'Authorization')
         res.end()
     }catch(error){
         console.error(error)
